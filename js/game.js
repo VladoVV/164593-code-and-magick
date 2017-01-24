@@ -438,7 +438,6 @@ window.Game = (function () {
       var message;
       switch (this.state.currentStatus) {
         case Verdict.WIN:
-          window.renderStatistics(this.ctx, ['Света', 'Ира', 'Андрей', 'Вы'], [2233, 4456, 8133, 1581]);
           message = 'Вы победили Газебо!\nУра!';
           break;
         case Verdict.FAIL:
