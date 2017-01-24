@@ -1,6 +1,6 @@
 'use strict';
 
-window.renderStatistics = function (ctx, names = ['Света', 'Ира', 'Андрей', 'Вы'], times = [2233, 4456, 8133, 1581]) {
+var renderStatistics = function (ctx, names, times) {
   var fontType = '16px PT Mono';
   var textYouWin = 'Ура вы победили!';
   var textListResult = 'Список результатов:';
@@ -63,5 +63,7 @@ window.renderStatistics = function (ctx, names = ['Света', 'Ира', 'Ан�
   }
 
 };
+
+//var names = ['Света', 'Ира', 'Андрей', 'Вы'], times = [2233, 4456, 8133, 1581];
 //var canvas = document.querySelector('canvas');
 //window.renderStatistics(canvas.getContext('2d'), ['Света', 'Ира', 'Андрей', 'Вы'], [2233, 4456, 8133, 1581]);
