@@ -29,6 +29,8 @@ var colorFireball = [
   '#e848d5',
   '#e6e848'
 ]; //задаем массив с возможными цветами для фаербола
+var ENTER_KEYCODE = 13;
+var ESCAPE_KEYCODE = 27;
 
 
 
@@ -41,16 +43,47 @@ function deleteClass() {
 // Отслеживаем событие клик на аватарке, когда случится событие удаляем класс скрывающий объект
 openWindow.addEventListener('click', deleteClass);
 
+// Когда происходит событие event и это событие = нажатию на ентер
+var isActivateEvent = function(event) {
+  return event.keyCode && event.keyCode === ENTER_KEYCODE;
+};
+
+// Открываем элемент setup и отслеживаем событие (нажатие Esc - при котором окно setup закроется) 
+var showSetupElement = function(event) {
+  setup.classList.remove('invisible');
+    document.addEventListener('keydown', function (event) {
+      if (event.keyCode === ESCAPE_KEYCODE) {
+        setup.classList.add('invisible');
+      }
+    });
+};
+
+// Закрываем окно setup 
+var hideSetupElement = function(event) {
+  setup.classList.add('invisible');
+};
+
+// Отслеживаем событие нажатие кнопки ентер на аватарке
+openWindow.addEventListener('keydown', function deleteClass(event) {
+  if (isActivateEvent(event)) {
+    showSetupElement(event);
+  }
+});
 
 //---Закрываем окно---// 
 // Функция добавления класса 
 function addClass() {
-  setup.classList.add('invisible');
+  showSetupElement(event);
 }
 
 // Отслеживаем событие клик на крестике, когда случится событие добавляем класс скрывающий объект
 closeWindow.addEventListener('click', addClass);
 
+closeWindow.addEventListener('keydown', function addClass(event) {
+  if (isActivateEvent(event)) {
+    hideSetupElement(event);
+  }
+});
 
 //---изменение цвета накидки---//
 // выбираем случайный цвет из массива
