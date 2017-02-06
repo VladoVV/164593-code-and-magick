@@ -31,57 +31,69 @@ var colorFireball = [
 ]; //задаем массив с возможными цветами для фаербола
 var ENTER_KEYCODE = 13;
 var ESCAPE_KEYCODE = 27;
+var buttonSetupSubmit = document.querySelector('.setup-submit');
 
-
-
-//---Открываем окно---// 
-// Функция удаления класса 
-function deleteClass() {
-  setup.classList.remove('invisible');
-}
-
-// Отслеживаем событие клик на аватарке, когда случится событие удаляем класс скрывающий объект
-openWindow.addEventListener('click', deleteClass);
-
-// Когда происходит событие event и это событие = нажатию на ентер
-var isActivateEvent = function(event) {
+// Функция - Когда происходит событие event и это событие = нажатию на ентер
+var isActivateEvent = function (event) {
   return event.keyCode && event.keyCode === ENTER_KEYCODE;
 };
 
-// Открываем элемент setup и отслеживаем событие (нажатие Esc - при котором окно setup закроется) 
-var showSetupElement = function(event) {
-  setup.classList.remove('invisible');
-    document.addEventListener('keydown', function (event) {
-      if (event.keyCode === ESCAPE_KEYCODE) {
-        setup.classList.add('invisible');
-      }
-    });
+// Функция - Отслеживаем событие - нажатие кнопки Esc, если событие происходит закрываем окно setup (Отслеживаем событие только в setup)
+var setupKeyDownHandler = function (event) {
+    if (event.keyCode === ESCAPE_KEYCODE) {
+      setup.classList.add('invisible');
+    }
 };
 
-// Закрываем окно setup 
-var hideSetupElement = function(event) {
-  setup.classList.add('invisible');
+// Функция - Открываем элемент setup и отслеживаем событие (нажатие Esc - при котором окно setup закроется) 
+var showSetupElement = function () {
+  setup.classList.remove('invisible');
+  setup.setAttribute("aria-hidden", "false");
+  document.addEventListener('keydown', setupKeyDownHandler);
 };
+
+// Функция - Закрываем окно setup 
+var hideSetupElement = function () {
+  setup.classList.add('invisible');
+  setup.setAttribute("aria-hidden", "true");
+  document.removeEventListener('keydown', setupKeyDownHandler);
+};
+
+//---Открываем окно---//
+// Отслеживаем событие клик на аватарке, когда случится событие удаляем класс скрывающий объект
+openWindow.addEventListener('click', function () {
+  showSetupElement();
+});
 
 // Отслеживаем событие нажатие кнопки ентер на аватарке
-openWindow.addEventListener('keydown', function deleteClass(event) {
+openWindow.addEventListener('keydown', function (event) {
   if (isActivateEvent(event)) {
-    showSetupElement(event);
+    showSetupElement();
   }
 });
 
 //---Закрываем окно---// 
-// Функция добавления класса 
-function addClass() {
-  showSetupElement(event);
-}
-
 // Отслеживаем событие клик на крестике, когда случится событие добавляем класс скрывающий объект
-closeWindow.addEventListener('click', addClass);
+closeWindow.addEventListener('click', function () {
+  hideSetupElement();
+});
 
-closeWindow.addEventListener('keydown', function addClass(event) {
+// Отслеживаем событие нажатие Esc, когда случится событие добавляем класс скрывающий объект
+closeWindow.addEventListener('keydown', function (event) {
   if (isActivateEvent(event)) {
-    hideSetupElement(event);
+    hideSetupElement();
+  }
+});
+
+// Закрываем окно setup при клике на кнопку сохранить
+buttonSetupSubmit.addEventListener('click', function (event) {
+  hideSetupElement();
+});
+
+// Закрываем окно setup если нажать на кнопку сохранить
+buttonSetupSubmit.addEventListener('keydown', function (event) {
+  if (isActivateEvent(event)) {
+    hideSetupElement();
   }
 });
 
