@@ -41,7 +41,7 @@ var isActivateEvent = function (event) {
 // Функция - Отслеживаем событие - нажатие кнопки Esc, если событие происходит закрываем окно setup (Отслеживаем событие только в setup)
 var setupKeyDownHandler = function (event) {
   if (event.keyCode === ESCAPE_KEYCODE) {
-      setup.classList.add('invisible');
+    setup.classList.add('invisible');
   }
 };
 
