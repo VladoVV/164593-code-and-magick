@@ -11,7 +11,7 @@ var renderStatistics = function (ctx, names, times) {
   var histoHeight = 150; // Максимальная высота гистограммы
   var histoX = 140; // Отступ по оси X
   var histoY = 100; // Отступ по оси Y
-  var max = -Infinity; //Для поика максимального элемента масива
+  var max = -Infinity; // Для поика максимального элемента масива
   var columnWidth = 40; // Задаем ширину колонки гистограммы
   var indent = 50; // Расстояние между колонками
   var columnIndent = columnWidth + indent; // Ширина колонки с отступом
@@ -33,8 +33,8 @@ var renderStatistics = function (ctx, names, times) {
   ctx.fillText(textYouWin, 120, 40);
   ctx.fillText(textListResult, 120, 60);
 
-  //Определяем максимальный элемент массива times
-  for (var i = 0; i < times.length; i++ ) {
+  // Определяем максимальный элемент массива times
+  for (var i = 0; i < times.length; i++) {
     if (times[i] > max) {
       max = times[i];
     }
