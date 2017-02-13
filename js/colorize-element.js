@@ -6,4 +6,11 @@ window.colorizeElement = function (element, colors, property) {
     currentColor = utils.getRandomElementExcept(colors, currentColor);
     element.style[property] = currentColor;
   });
+  element.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      currentColor = utils.getRandomElementExcept(colors, currentColor);
+      element.style[property] = currentColor;
+    }
+    
+  });
 };

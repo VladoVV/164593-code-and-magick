@@ -98,16 +98,6 @@ buttonSetupSubmit.addEventListener('keydown', function (event) {
 });
 
 // ---изменение цвета накидки---//
-// выбираем случайный цвет из массива
-//function randColorWizardCoat() {
-//  return colorWizardCoat[Math.floor(Math.random() * colorWizardCoat.length)];
-//}
-//
-//// отслеживаем клик по накидке и меняем задаем ей случайный цвет
-//wizardCoat.addEventListener('click', function () {
-//  wizardCoat.style.fill = randColorWizardCoat();
-//});
-
 window.colorizeElement(wizardCoat, [
   'rgb(101, 137, 164)',
   'rgb(241, 43, 107)',
@@ -117,16 +107,7 @@ window.colorizeElement(wizardCoat, [
   'rgb(0, 0, 0)'
 ], 'fill');
 
-
 // ---меняем цвет глаз волшебника---//
-// выбираем случайный цвет из массива
-//function randColorEyes() {
-//  return colorEyes[Math.floor(Math.random() * colorEyes.length)];
-//}
-//wizardEyes.addEventListener('click', function () {
-//  wizardEyes.style.fill = randColorEyes();
-//});
-
 window.colorizeElement(wizardEyes, [
   'black',
   'red',
@@ -136,15 +117,6 @@ window.colorizeElement(wizardEyes, [
 ], 'fill');
 
 // ---меняем цвет фаербола---//
-// выбираем случайный цвет из массива
-//function randColorFireball() {
-//  return colorFireball[Math.floor(Math.random() * colorFireball.length)];
-//}
-//
-//setupFireball.addEventListener('click', function () {
-//  setupFireballWrap.style.background = randColorFireball();
-//});
-
 window.colorizeElement(setupFireballWrap, [
   '#ee4830',
   '#30a8ee',
