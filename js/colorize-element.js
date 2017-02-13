@@ -1,8 +1,9 @@
 'use strict';
 
 window.colorizeElement = function (element, colors, property) {
-  var currentColor = 
+  var currentColor = '#6589a4';
   element.addEventListener('click', function () {
-    element.style.property = utils.getRandomElementExcept(colors, currentColor);
+    currentColor = utils.getRandomElementExcept(colors, currentColor);
+    element.style[property] = currentColor;
   });
 };

@@ -7,8 +7,8 @@ utils.getRandomElement = function (myArray) {
 
 utils.getRandomElementExcept = function (myArray, currentColorElem) {
   var colorElement = null;
-  while (colorElement === currentColorElem) {
-    colorElement = getRandomElement(myArray);
+  while (colorElement === currentColorElem || !colorElement) {
+    colorElement = utils.getRandomElement(myArray);
   }
   return colorElement;
 };
