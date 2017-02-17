@@ -1,6 +1,6 @@
 'use strict';
 
-var renderStatistics = function (ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   var fontType = '16px PT Mono';
   var textYouWin = 'Ура вы победили!';
   var textListResult = 'Список результатов:';
