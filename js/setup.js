@@ -9,6 +9,28 @@ var setupFireballWrap = document.querySelector('.setup-fireball-wrap'); // на�
 var ENTER_KEYCODE = 13;
 var ESCAPE_KEYCODE = 27;
 var buttonSetupSubmit = document.querySelector('.setup-submit');
+var colorsCoat = [
+  'rgb(101, 137, 164)',
+  'rgb(241, 43, 107)',
+  'rgb(146, 100, 161)',
+  'rgb(56, 159, 117)',
+  'rgb(215, 210, 55)',
+  'rgb(0, 0, 0)'
+];
+var colorsEyes = [
+  'black',
+  'red',
+  'blue',
+  'yellow',
+  'green'
+];
+var colorsFireball = [
+  '#ee4830',
+  '#30a8ee',
+  '#5ce6c0',
+  '#e848d5',
+  '#e6e848'
+];
 
 // Функция - Когда происходит событие event и это событие = нажатию на ентер
 var isActivateEvent = function (event) {
@@ -75,29 +97,10 @@ buttonSetupSubmit.addEventListener('keydown', function (event) {
 });
 
 // ---изменение цвета накидки---//
-window.colorizeElement(wizardCoat, [
-  'rgb(101, 137, 164)',
-  'rgb(241, 43, 107)',
-  'rgb(146, 100, 161)',
-  'rgb(56, 159, 117)',
-  'rgb(215, 210, 55)',
-  'rgb(0, 0, 0)'
-], 'fill');
+window.colorizeElement(wizardCoat, colorsCoat, 'fill');
 
 // ---меняем цвет глаз волшебника---//
-window.colorizeElement(wizardEyes, [
-  'black',
-  'red',
-  'blue',
-  'yellow',
-  'green'
-], 'fill');
+window.colorizeElement(wizardEyes, colorsEyes, 'fill');
 
 // ---меняем цвет фаербола---//
-window.colorizeElement(setupFireballWrap, [
-  '#ee4830',
-  '#30a8ee',
-  '#5ce6c0',
-  '#e848d5',
-  '#e6e848'
-], 'background');
+window.colorizeElement(setupFireballWrap, colorsFireball, 'background');

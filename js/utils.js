@@ -1,14 +1,14 @@
 'use strict';
 
 var utils = {};
-utils.getRandomElement = function (myArray) {
-  return myArray[Math.floor(Math.random() * myArray.length)];
+utils.getRandomElement = function (colors) {
+  return colors[Math.floor(Math.random() * colors.length)];
 };
 
-utils.getRandomElementExcept = function (myArray, currentColorElem) {
-  var colorElement = null;
-  while (colorElement === currentColorElem || !colorElement) {
-    colorElement = utils.getRandomElement(myArray);
+utils.getRandomElementExcept = function (colors, currentColorElem) {
+  var colorElement = currentColorElem;
+  while (colorElement === currentColorElem) {
+    colorElement = utils.getRandomElement(colors);
   }
   return colorElement;
 };
