@@ -10,7 +10,7 @@ window.colorizeElement = function (element, colors, property) {
   });
 
   element.addEventListener('keydown', function (event) {
-    if (event.keyCode === ENTER_KEYCODE) {
+    if (event.keyCode === window.ENTER_KEYCODE) {
       currentColor = utils.getRandomElementExcept(colors, currentColor);
       element.style[property] = currentColor;
     }
