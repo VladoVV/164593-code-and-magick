@@ -1,18 +1,20 @@
 'use strict';
-var utils = window.utils;
+(function () {
+  var utils = window.utils;
 
-window.colorizeElement = function (element, colors, property) {
-  var currentColor = '#6589a4';
+  window.colorizeElement = function (element, colors, property) {
+    var currentColor = '#6589a4';
 
-  element.addEventListener('click', function () {
-    currentColor = utils.getRandomElementExcept(colors, currentColor);
-    element.style[property] = currentColor;
-  });
-
-  element.addEventListener('keydown', function (event) {
-    if (event.keyCode === window.ENTER_KEYCODE) {
-      currentColor = utils.getRandomElementExcept(colors, currentColor);
+    element.addEventListener('click', function () {
+      currentColor = window.getRandomElementExcept(colors, currentColor);
       element.style[property] = currentColor;
-    }
-  });
-};
+    });
+
+    element.addEventListener('keydown', function (event) {
+      if (event.keyCode === setup.ENTER_KEYCODE) {
+        currentColor = window.getRandomElementExcept(colors, currentColor);
+        element.style[property] = currentColor;
+      }
+    });
+  };
+})();
