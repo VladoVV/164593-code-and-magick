@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-  
+
 
   window.colorizeElement = function (element, colors, property) {
     var currentColor = '#6589a4';
