@@ -1,6 +1,6 @@
 'use strict';
-var setup = window.setup;
-setup = (function () {
+
+window.setup = (function () {
 
   var openWindow = document.querySelector('.setup-open');
   var setup = document.querySelector('.setup');
