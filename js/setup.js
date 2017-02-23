@@ -61,7 +61,7 @@ window.setup = (function () {
     setup.classList.add('invisible');
     setup.setAttribute('aria-hidden', 'true');
     document.removeEventListener('keydown', setupKeyDownHandler);
-  
+
     if (typeof onSetupClose === 'function') { // callback сработает если...
       onSetupClose();
     }
