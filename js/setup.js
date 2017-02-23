@@ -34,7 +34,7 @@ window.setup = (function () {
     '#e6e848'
   ];
   var onSetupClose; // переменная для коллбека
-  
+
   // Функция - Когда происходит событие event и это событие = нажатию на ентер
   var isActivateEvent = function (event) {
     return event.keyCode && event.keyCode === ENTER_KEYCODE;
@@ -52,7 +52,7 @@ window.setup = (function () {
     setup.classList.remove('invisible');
     setup.setAttribute('aria-hidden', 'false');
     document.addEventListener('keydown', setupKeyDownHandler);
-    onSetupClose = callback; //записываем в переменную переданный параметром коллбек
+    onSetupClose = callback; // записываем в переменную переданный параметром коллбек
     return onSetupClose;
   };
 
@@ -61,7 +61,7 @@ window.setup = (function () {
     setup.classList.add('invisible');
     setup.setAttribute('aria-hidden', 'true');
     document.removeEventListener('keydown', setupKeyDownHandler);
-    
+  
     if (typeof onSetupClose === 'function') { // callback сработает если...
       onSetupClose();
     }
@@ -73,7 +73,7 @@ window.setup = (function () {
     showSetupElement();
   });
 
-  // Отслеживаем событие нажатие кнопки ентер на аватарке 
+  // Отслеживаем событие нажатие кнопки ентер на аватарке
   openWindow.addEventListener('keydown', function (event) {
     if (isActivateEvent(event)) {
       showSetupElement(function () { // передаем функцию которая должна сработать когда окно откроют через ентер
