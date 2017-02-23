@@ -76,7 +76,7 @@ window.setup = (function () {
   // Отслеживаем событие нажатие кнопки ентер на аватарке 
   openWindow.addEventListener('keydown', function (event) {
     if (isActivateEvent(event)) {
-      showSetupElement(function () {передаем функцию которая должна сработать когда окно откроют через ентер
+      showSetupElement(function () { // передаем функцию которая должна сработать когда окно откроют через ентер
         openWindow.focus();
       });
     }
