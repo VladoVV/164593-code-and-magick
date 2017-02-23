@@ -1,13 +1,13 @@
 'use strict';
 (function () {
 
-
-  var getRandomElement = function (colors) {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
   window.getRandomElementExcept = function (colors, currentColorElem) {
     var colorElement = currentColorElem;
+    
+    var getRandomElement = function (colors) {
+    return colors[Math.floor(Math.random() * colors.length)];
+    };
+    
     while (colorElement === currentColorElem) {
       colorElement = getRandomElement(colors);
     }
