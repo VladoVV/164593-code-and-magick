@@ -33,7 +33,8 @@ window.setup = (function () {
     '#e848d5',
     '#e6e848'
   ];
-
+  var onSetupClose; // переменная для коллбека
+  
   // Функция - Когда происходит событие event и это событие = нажатию на ентер
   var isActivateEvent = function (event) {
     return event.keyCode && event.keyCode === ENTER_KEYCODE;
@@ -47,10 +48,12 @@ window.setup = (function () {
   };
 
   // Функция - Открываем элемент setup и отслеживаем событие (нажатие Esc - при котором окно setup закроется)
-  var showSetupElement = function () {
+  var showSetupElement = function (callback) {
     setup.classList.remove('invisible');
     setup.setAttribute('aria-hidden', 'false');
     document.addEventListener('keydown', setupKeyDownHandler);
+    onSetupClose = callback; //записываем в переменную переданный параметром коллбек
+    return onSetupClose;
   };
 
   // Функция - Закрываем окно setup
@@ -58,6 +61,10 @@ window.setup = (function () {
     setup.classList.add('invisible');
     setup.setAttribute('aria-hidden', 'true');
     document.removeEventListener('keydown', setupKeyDownHandler);
+    
+    if (typeof onSetupClose === 'function') { // callback сработает если...
+      onSetupClose();
+    }
   };
 
   // ---Открываем окно---//
@@ -66,10 +73,12 @@ window.setup = (function () {
     showSetupElement();
   });
 
-  // Отслеживаем событие нажатие кнопки ентер на аватарке
+  // Отслеживаем событие нажатие кнопки ентер на аватарке 
   openWindow.addEventListener('keydown', function (event) {
     if (isActivateEvent(event)) {
-      showSetupElement();
+      showSetupElement(function () {передаем функцию которая должна сработать когда окно откроют через ентер
+        openWindow.focus();
+      });
     }
   });
 
