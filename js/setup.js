@@ -77,7 +77,7 @@ window.setup = (function () {
   openWindow.addEventListener('keydown', function (event) {
     if (isActivateEvent(event)) {
       showSetupElement(function () { // передаем функцию которая должна сработать когда окно откроют через ентер
-        openWindow.focus();
+        document.querySelector('.setup-open-icon').focus();
       });
     }
   });
